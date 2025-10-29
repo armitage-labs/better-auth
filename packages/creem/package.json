@@ -1,0 +1,69 @@
+{
+  "name": "@better-auth/creem",
+  "author": "Gabriel Ferraz",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "homepage": "https://www.better-auth.com/docs/plugins/creem",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/better-auth/better-auth",
+    "directory": "packages/creem"
+  },
+  "keywords": [
+    "creem",
+    "auth",
+    "payments",
+    "subscriptions"
+  ],
+  "module": "dist/index.js",
+  "description": "Creem plugin for Better Auth",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "better-auth-dev-source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "better-auth-dev-source": "./src/client.ts",
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "require": "./dist/client.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ],
+      "client": [
+        "./dist/client.d.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "defu": "^6.1.4",
+    "zod": "^4.1.5"
+  },
+  "peerDependencies": {
+    "@better-auth/core": "workspace:*",
+    "better-auth": "workspace:*"
+  },
+  "devDependencies": {
+    "@better-auth/core": "workspace:*",
+    "better-auth": "workspace:*",
+    "better-call": "catalog:",
+    "tsdown": "catalog:"
+  }
+}

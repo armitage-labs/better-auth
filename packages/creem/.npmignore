@@ -1,0 +1,10 @@
+src/
+*.test.ts
+*.test.tsx
+tsconfig.json
+tsdown.config.ts
+vitest.config.ts
+EXAMPLE.md
+node_modules/
+.DS_Store
+
