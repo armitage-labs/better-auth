@@ -16,10 +16,10 @@ description: Better Auth Plugin for Payment and Subscriptions using Creem
 - **Database Persistence** - Automatically synchronize customer and subscription data with your database
 - **Access Management** - Automatically grant or revoke access to users based on their subscription status
 - **Customer Synchronization** - Synchronize Creem customer IDs with your database users
-- **Checkout Integration** - Create checkout sessions for authenticated users
+- **Checkout Integration** - Create checkout sessions either automatically for authenticated users or manually for unauthenticated users
 - **Customer Portal** - Enable users to manage subscriptions, view invoices, and update payment methods
-- **Subscription Management** - Cancel, retrieve, and track subscription details automatically for authenticated users
-- **Transaction History** - Search and filter transaction records for authenticated users
+- **Subscription Management** - Cancel, retrieve, and track subscription details for authenticated users or manually for unauthenticated users
+- **Transaction History** - Search and filter transaction records for authenticated users or manually for unauthenticated users
 - **Webhook Processing** - Handle Creem webhooks securely with signature verification
 - **Flexible Architecture** - Use Better Auth endpoints or direct server-side functions
 - **Trial Abuse Prevention** - Users can only get one trial per account across all plans (when using database mode)
@@ -252,11 +252,8 @@ Redirect users to manage their subscriptions:
 
 ```typescript
 const handlePortal = async () => {
+  // No need to redirect, the portal will be opened in the same tab
   const { data, error } = await authClient.creem.createPortal();
-
-  if (data?.url) {
-    window.location.href = data.url;
-  }
 };
 ```
 
